@@ -5,7 +5,7 @@ import { Label, Navbar, NavItem, Nav, Grid, Row, Col , Button} from "react-boots
 export default class Header extends React.Component {
 
   constructor(props){
-    super(props);
+   super(props);
     this.state = {
       registers : this.props.registers,
     }
@@ -20,7 +20,7 @@ export default class Header extends React.Component {
 
       <Navbar >
             <Navbar.Brand>
-              CS101 Honors Web App
+              CSCI 1103 Computer Science 1 Honors SVM WebApp
             </Navbar.Brand>
       </Navbar>
 
