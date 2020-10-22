@@ -20,7 +20,7 @@ export default class Header extends React.Component {
 
       <Navbar >
             <Navbar.Brand>
-              CSCI 1103 Computer Science 1 Honors SVM WebApp
+              CSCI 1103 CS 1 Honors - Simple Virtual Machine
             </Navbar.Brand>
       </Navbar>
 
