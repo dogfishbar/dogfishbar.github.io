@@ -336,7 +336,7 @@ export default class AssemblyLanguageInstructions extends React.Component {
 
   BGT(disp){ // BGT disp: if PSW, is positive, causes the new value of PC to be the sum PC + disp. Note that if disp is negative, this will cause the program to jump backward in the sequence of instructions. If PSW <= 0, this instruction does nothing.
       //Get PSW
-      const psw = this.props.utilRegs.value;
+      const psw = this.props.utilRegs[1].value;
       if (psw > 0) {
           const PCVal = this.props.utilRegs[0].value;
           const loc = PCVal;
