@@ -11,74 +11,72 @@ import brace from 'brace';
 import 'brace/mode/java';
 import 'brace/theme/github';
 
-let max = (m, n) => m > n ? m : n;
+let successfulAssembley = "Assembley Successful";
 
-let successfulCompilationNoti="Compilation Successful!";
-let OP_REGS=[
+let OP_REGS = [
   // May have to explicitly declare these as registers.
-  { name: "R0", value: 0},
+  { name: "R0", value: 0 },
   { name: "R1", value: 0 },
   { name: "R2", value: 0 },
-  { name: "R3", value: 0 },
+  { name: "R3", value: 0 }
 ];
 
-let UTIL_REGS=[
-  { name: "PC", value: 1  }, // Holds the address in RAM of the next instruction to be executed
-  { name: "PSW", value: 0    }, //the PSW (or program status word) register holds information about the outcomes of comparisons, etc
-  { name: "RA", value: 1     }, // the RA (or return address) register holds the address of the instruction to return to after a JSR.
-  { name: "Zero", value: 0     }, // the Zero register holds the constant 0.
-
+let UTIL_REGS = [
+  { name: "PC",   value: 1 }, // Holds the address in RAM of the next
+                              // instruction to be executed
+  { name: "PSW",  value: 0 }, // The program status word holds the
+                              // outcome of comparisons, etc
+  { name: "RA",   value: 1 }, // The return address register holds the address
+                              // of the instruction to return to after a JSR.
+  { name: "Zero", value: 0 }  // The Zero register holds the constant 0.
 ];
 
-let MEMORY_OPS=[];
-let MEMORY=new Map();
+let MEMORY_OPS = [];
+let MEMORY = new Map();
 let inputMem = new Map();
 let dataValStr = "";
 
-
-var InstrTypes={
-  NONE:      "X",
-  REGISTER:  "R",
+var InstrTypes = {
+  NONE:         "X",
+  REGISTER:     "R",
   IMMTRANSFER:  "TI",
   REGTRANSFER:  "TR",
-  MEMORY:    "M",
-  BREAK:     "B",
-  EMPTY:     "E",
-  COMPARE:    "C",
-  JUMP:       "J",
-
-
-
+  MEMORY:       "M",
+  BRANCH:       "B",
+  EMPTY:        "E",
+  COMPARE:      "C",
+  JUMP:         "J"
 };
 
-
-let compiledCode=[];
-let instructions=[];
-let armInstrs=new AssemblyLanguageInstructions({utilRegs: UTIL_REGS, memory: MEMORY, memOps: MEMORY_OPS});
-
+let compiledCode = [];
+let instructions = [];
+let armInstrs = new AssemblyLanguageInstructions({ utilRegs: UTIL_REGS,
+                                                   memory: MEMORY,
+                                                   memOps: MEMORY_OPS
+                                                 });
 var ace = require('brace');
 var Range = ace.acequire('ace/range').Range
+
 class App extends React.Component {
-  constructor(){
+  constructor() {
     super();
-    this.state={
-      codeDisplayWidth: window.innerWidth/2,
+    this.state = {
+      codeDisplayWidth: window.innerWidth / 2,
       notification : "",
       notificationColor : null,
+      setNotification: this.setNotification.bind(this),
       code : "",
       operationRegs : OP_REGS,
-      utilRegs : UTIL_REGS,
+      utilRegs  : UTIL_REGS,
       memoryOps : MEMORY_OPS,
       memory    : MEMORY,
-      inputMem   : inputMem,
-      currLine : 0,
+      inputMem  : inputMem,
+      currLine  : 0,
       pause     : false,
       timer : 3,
       secondsElapsed : 0,
     }
-
   }
-
 
   testMethod(e){
     console.log("TEST");
@@ -88,7 +86,7 @@ class App extends React.Component {
   render() {
     //console.log(this.state.dataValStr);
       return (
-      <div className="papaBear">
+        <div className="papaBear">
         <div >
           <Header/>
         </div>
@@ -96,7 +94,7 @@ class App extends React.Component {
                 <Row>
                   <Col md={8} sm={8} lg={8}>
                     <CodeDisplay ref = "codeDisp"
-                                width={this.state.codeDisplayWidth +"px"}
+                                 width={this.state.codeDisplayWidth +"px"}
                                  timer={this.state.timer}
                                  timerChange={this.setTimer.bind(this)}
                                  compileCode={this.compileCode.bind(this)}
@@ -119,7 +117,7 @@ class App extends React.Component {
                         utilRegs={this.state.utilRegs}
                         dataString = {this.state.dataValStr}
                         clearDataArray = {this.memoryWipe.bind(this)}
-                        memoryOps={this.state.memory}
+                        memoryOps = {this.state.memory}
                         updateInputMem = {this.updateInputMem.bind(this)}
                         updateDataArray={this.updateMemory.bind(this)}  //Method that gets passed into the updateDataArray so the compiler knows what is input.
                     />
@@ -127,224 +125,184 @@ class App extends React.Component {
                 </Row>
               </Grid>
       </div>
-
       );
     }
 
-
-  updateMemory(loc, val, str){
+  updateMemory(loc, val, str) {
     inputMem.set(loc, val);
     MEMORY.set(loc,val);
-    this.setState({dataValStr : str, inputMem: inputMem, memory: MEMORY});
-
-  }
-  updateDimensions(){
-    this.setState({width : (window.innerWidth/2)})
+    this.setState({dataValStr: str, inputMem: inputMem, memory: MEMORY});
   }
 
-  updateInputMem(inputMem){
-    this.setState({inputMem})
-  }
-  componentDidMount(){
+  updateDimensions() { this.setState({width: (window.innerWidth/2)}) }
+
+  updateInputMem(inputMem) { this.setState({inputMem}) }
+
+  componentDidMount() {
     this.updateDimensions();
     window.addEventListener("resize", this.updateDimensions.bind(this));
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     window.removeEventListener("resize", this.updateDimensions.bind(this));
   }
 
-  handleChange(e){
-      this.setState({code: e});
-  }
+  handleChange(e) { this.setState({code: e}); }
 
+  setNotification(notification) { this.setState({notification}); }
 
-  setNotification(notification){
-      this.setState({notification});
-  }
+  setTimer(timer) { this.setState({timer}); }
 
-  setTimer(timer){
-    this.setState({timer});
-  }
-
-  step(e){
+  step(e) {
     this.setPause(e);
     this.executeLineOfCode();
   }
-  setPause(pause){
 
-    clearInterval(this.incrementer);
-  }
+  setPause(pause) { clearInterval(this.incrementer); }
 
-  playCode(){
-
-    var home=this;
-    if(home.state.secondsElapsed === 0){
+  playCode() {
+    var home = this;
+    if(home.state.secondsElapsed === 0) {
       this.executeLineOfCode();
     }
-    this.incrementer=setInterval(function(){
-      if (home.state.secondsElapsed === home.state.timer -1){
+    this.incrementer = setInterval(function(){
+      if (home.state.secondsElapsed === home.state.timer - 1) {
         home.executeLineOfCode();
       }
-
       home.setState({
         secondsElapsed: (home.state.secondsElapsed + 1) % home.state.timer
-
       });
     }, 1000);
-
   }
 
   selectAceLine(num){
     const editor = this.refs.codeDisp.refs.ace.editor;
-
     console.log(editor.session);
     editor.session.addDynamicMarker(new Range( 0, 0, 1,  1), "myMarker", "fullLine", true);
-
   }
 
-  executeLineOfCode(){
-        let PCVal=parseInt(UTIL_REGS[0].value);
-        this.selectAceLine(PCVal)
-
-        let loc=PCVal -1;
-
+  executeLineOfCode() {
+        let PCVal = parseInt(UTIL_REGS[0].value);
+        this.selectAceLine(PCVal);
+        let loc = PCVal - 1;
 
         //TODO Possibly make this check after an instruction is exectued.
         if (loc >= instructions.length) {
           console.log("Time to break out!");
           this.setPause();
         }
-        else{
+        else {
+          const instruct = instructions[loc];
+          UTIL_REGS[0].value=(PCVal + 1);
 
-        const instruct=instructions[loc];
-        UTIL_REGS[0].value=(PCVal + 1);
+        let instr  = instruct[0];
 
+        let rdInfo = instruct[1];
+        let rsInfo = instruct[2];
+        let rtInfo = instruct[3];
 
-        let instr=instruct[0];
-        let rdInfo=instruct[1];
-        let rsInfo=instruct[2];
+        let immediateInfo = instruct[4];
+        let offsetInfo    = instruct[5];
+        let dispInfo      = instruct[6];
 
-        let rtInfo=instruct[3];
-        let immediateInfo=instruct[4];
-        let offsetInfo=instruct[5];
-        let dispInfo=instruct[6];
+        let rs = null;
+        let rd = null;
+        let rt = null;
+        let number = null;
+        let offset = null;
+        let disp = null;
 
-        let rs=null;
-        let rd=null;
-        let rt=null;
-        let number=null;
-        let offset=null;
-        let disp=null;
+        if (rsInfo !== null) {
+          if (rsInfo.toUpperCase() === "ZERO")
+            rs = UTIL_REGS[3];
+          else
+            rs = OP_REGS[parseInt(rsInfo.substr(-1))];
+          }
 
-        console.log(rsInfo);
-        if(rsInfo !== null){
-                if (rsInfo.toUpperCase() === "ZERO"){
-                  rs=UTIL_REGS[3];
-                }else{
-                  rs=OP_REGS[parseInt(rsInfo.substr(-1))];
-                }
-
-             }
-            //IF RD is ZeroRegister! WE have to notify the user that that is ILLEGAL
-        if(rdInfo !== null){
-             rd=OP_REGS[parseInt(rdInfo.substr(-1))];
+        //IF Rd is Zero register notify the user that that is illegal
+        if (rdInfo !== null) {
+             rd = OP_REGS[parseInt(rdInfo.substr(-1))];
          }
 
-        if(rtInfo !== null){
+        if (rtInfo !== null) {
+          if (rtInfo.toUpperCase() === "ZERO"){
+            rt = UTIL_REGS[3];
+          } else {
+            rt = OP_REGS[parseInt(rtInfo.substr(-1))];
+          }
+        }
 
-         if (rtInfo.toUpperCase() === "ZERO"){
-           rt=UTIL_REGS[3];
-         }else{
-           rt=OP_REGS[parseInt(rtInfo.substr(-1))];
-           }
+        if (immediateInfo !== null) {
+          number = parseInt(immediateInfo);
          }
 
-        if(immediateInfo !== null){
-           number=parseInt(immediateInfo);
-         }
-
+        // Multiply by word size.
         if(offsetInfo !== null){
-           offset=parseInt(offsetInfo)*2; //Multiply by 2 to keep it in terms of words
+           offset = parseInt(offsetInfo) * 2;
          }
 
         if(dispInfo !== null){
-           disp=parseInt(dispInfo);
+           disp = parseInt(dispInfo);
         }
 
-
-        armInstrs.executeInstruction(instr,  rd, rs,  rt, number, offset, disp);
+console.log("executeLineOfCode: about to execute something ...");
+        armInstrs.executeInstruction(instr,  rd, rs, rt, number, offset, disp);
+console.log("executeLineOfCode: just back from executing something ...");
            //Increment PC
         this.updateDataArray()
 
         console.log(MEMORY);
-        this.setState({
-               utilRegs : UTIL_REGS,
-               memoryOps : MEMORY_OPS,
-               operationRegs : OP_REGS
-         });
+        this.setState({ utilRegs: UTIL_REGS,
+                        memoryOps : MEMORY_OPS,
+                        operationRegs : OP_REGS
+                      });
     }
-
-
-
   }
 
-  compressCode(){
-//    let noLines=this.state.code.replace(/#.+\n/, '\n').replace(/(\r\n|\n|\r)/gm,"");
-//   let noLines=this.state.code.replace(/(\r\n|\n|\r)/gm,"");
-    let noLines=this.state.code.replace(/\r/gm,'');
- //   let seperatedLines=noLines.replace(/;/g,';\n');
-    let seperatedLines=noLines.replace(/;/g,';');
-    console.log("compressCode: lines=" + seperatedLines);
-    this.setState({
-      code : seperatedLines
-    })
-  }
-  compileCode(){
+  compileCode() {
       this.reset();
-      this.setState({operationRegs : OP_REGS});
-      this.compressCode();
-      let success=true;
+      this.setState({ operationRegs : OP_REGS,  // re-initialize the regs
+                      code: this.state.code.replace(/\r/gm, '')
+                    });
+
+      let success = true;
       const home = this;
 
       instructions = []; // Reset instructions.
 
-      //let rawCode=this.state.code.replace(/(\r\n|\n|\r)/gm, '');
-      let rawCode=this.state.code;
+      let rawCode = this.state.code;
 
       rawCode = rawCode.toUpperCase()
                        .replace(/\d+:/g, '')  // optional label out
                        .replace(/;/g, '')     // get rid of spurious ;s
                        .replace(/\n/g, ';')   // replace \ns with ;s
-                       //.replace(/#.*/g, '')   // optional comment out
                        .replace(/\s+/g, ' ')
                        .trim();
 
-      console.log("rawCode=" + rawCode);
+      console.log("compileCode: rawCode=" + rawCode);
 
-      compiledCode=rawCode.split(";");
+      compiledCode = rawCode.split(";");
 
-      compiledCode.splice(-1, 1); //For some reason there is always an extra space character at the end. This deals with that.
+      // For some reason there is always an extra space character at the end.
+      compiledCode.splice(-1, 1);
 
-      // delete empty lines
+      // delete empty lines HEADS UP: may screw up PC!
       compiledCode = compiledCode.filter(i => i != '');
 
-      for (var i=0; i < compiledCode.length ; i ++) {
+      for (var i=0; i < compiledCode.length; i++) {
 
         let e = compiledCode[i].trim();
-        if (e == '') break;
+        //if (e == '') break;
 
         e = e + " ";
-        let op= "";
-
-
-        op=e.substring(0, e.indexOf(" "));
+        let op = "";
+        op = e.substring(0, e.indexOf(" "));
 console.log("e=" + e + " and op=" + op);
         //Get the Operation and determine if it's an R, I or J instruction.
-        let opType=armInstrs.getMethodType(op);
+        let opType = armInstrs.getOperationType(op);
 
         if(opType === InstrTypes.NONE){
-            success=false;
+            success = false;
             this.setNotification("Operation in line " + (i+1) + " is not found");
             setTimeout((function(){
               home.setNotification("")
@@ -389,27 +347,24 @@ console.log("e=" + e + " and op=" + op);
           }
 
           e=e.substring(e.indexOf(",")+1, e.length);
+          offset = e.substring(0, e.indexOf("("));
 
-          offset=e.substring(0, e.indexOf("("));
+          e = e.substring(e.indexOf("(") + 1, e.length);
+          rs = e.substring(0, e.indexOf(")"));
 
-          e=e.substring(e.indexOf("(")+1, e.length);
-          rs=e.substring(0, e.indexOf(")"));
-
-          regExists=this.testForRegisterPresence(rs, true);
+          regExists = this.testForRegisterPresence(rs, true);
 
           if(!regExists /*The Source Register does not exist*/){
             this.setNotification("Source Register in instruction " + (i+1) + " does not exist");
-            success=false;
+            success = false;
             setTimeout((function(){
               home.setNotification("")
             }), 3000);
             break;
           }
-
-
-          e=e.substring(e.indexOf(" ")+1, e.length);
+          e = e.substring(e.indexOf(" ") + 1, e.length);
           // Trim out all the spaces and new lines.
-          e=e.trim();
+          e = e.trim();
 
           instructions.push([op, rd, rs,  null, null , offset, null]);
 
@@ -418,17 +373,13 @@ console.log("e=" + e + " and op=" + op);
           /**
             Process a TI instruction
           */
+          let rd = "";
+          let number = "";
+          let regExists = false;
 
-          let rd="";
-          let number="";
-
-          let regExists=false;
-
-
-          e=e.substring(e.indexOf(" ")+1, e.length);
-          rd=e.substring(0, e.indexOf(","));
+          e = e.substring(e.indexOf(" ") + 1, e.length);
+          rd = e.substring(0, e.indexOf(","));
           rd = rd.trim();
-
 
           regExists=this.testForRegisterPresence(rd, false);
 
@@ -440,16 +391,14 @@ console.log("e=" + e + " and op=" + op);
               this.setNotification("Dest Register in instruction " + (i+1) + " does not exist");
             }
 
-            success=false;
+            success = false;
             setTimeout((function(){
               home.setNotification("")
             }), 3000);
             break;
-
           }
 
-
-          e=e.substring(e.indexOf(" ")+1, e.length);
+          e = e.substring(e.indexOf(" ")+1, e.length);
           number=e.substring(0, e.indexOf(" "));
 
           e=e.substring(e.indexOf(" ")+1, e.length);
@@ -470,7 +419,6 @@ console.log("e=" + e + " and op=" + op);
 
           let regExists=false;
 
-
           e=e.substring(e.indexOf(" ")+1, e.length);
           rd=e.substring(0, e.indexOf(","));
           rd = rd.trim();
@@ -483,7 +431,6 @@ console.log("e=" + e + " and op=" + op);
               home.setNotification("")
             }), 3000);
             break;
-
           }
           e=e.substring(e.indexOf(" ")+1, e.length);
           rs=e.substring(0, e.indexOf(" "));
@@ -509,27 +456,22 @@ console.log("e=" + e + " and op=" + op);
       }
       else if (opType === InstrTypes.REGISTER) {
 
-        let rd="";
-        let rs="";
-        let rt="";
+        let rd = "";
+        let rs = "";
+        let rt = "";
+        let regExists = false;
 
-        let regExists=false;
+        e = e.substring(e.indexOf(" ") + 1, e.length);
+        rd = e.substring(0, e.indexOf(",")).trim();
 
-
-        e=e.substring(e.indexOf(" ")+1, e.length);
-        rd=e.substring(0, e.indexOf(",")).trim();
-
-
-
-        regExists=this.testForRegisterPresence(rd, false);
-        if(!regExists /*The Value Register does not exist*/){
-
-          if(rd.substr(0) === "Z"){
+        regExists = this.testForRegisterPresence(rd, false);
+        if (!regExists /*The Value Register does not exist*/) {
+          if (rd.substr(0) === "Z") {
             this.setNotification("Cannot use RZ as a Destination Register");
-          }else{
+          } else {
             this.setNotification("Dest Register in instruction " + (i+1) + " does not exist");
           }
-          success=false;
+          success = false;
 
           setTimeout((function(){
             home.setNotification("")
@@ -560,7 +502,7 @@ console.log("e=" + e + " and op=" + op);
         else {
           rt = e.substring(0, e.length);
         }
-        
+
         rt = rt.trim();
 
         regExists=this.testForRegisterPresence(rt, true);
@@ -581,41 +523,17 @@ console.log("e=" + e + " and op=" + op);
         instructions.push([op, rd, rs, rt, null , null, null]);
 
       }
-      else if (opType == InstrTypes.BREAK){
-        let disp="";
-
-        disp=e.substring(e.indexOf(" ")+1, e.length).trim();
-
-        console.log(e);
-        //disp=e.substring(0, e.indexOf(" ")).trim();
-
-
-        e=e.substring(e.indexOf(" ")+1, e.length);
-        e=e.trim();
-
+      else if (opType == InstrTypes.BRANCH  || opType == InstrTypes.JUMP) {
+        let disp = "";
+        console.log("compile: opType is BRANCH or JUMP, e = " + e);
+        disp = e.substring(e.indexOf(" ") + 1, e.length)
+                .replace(/\(/g, '')
+                .replace(/\)/g, '')
+                .trim();
+        console.log("compile: opType is BRANCH or JUMP, disp = " + disp);
         instructions.push([op, null, null, null, null , null, disp]);
-
       }
-      else if (opType === InstrTypes.JUMP) {
-            /**
-              Process a Jump instruction
-            */
-
-            let disp="";
-
-            e=e.substring(e.indexOf("(")+1,e.indexOf(")"));
-            console.log(e);
-            disp = e.trim();
-            console.log(disp);
-
-            e=e.substring(e.indexOf(" ")+1, e.length);
-            e=e.trim();
-
-            instructions.push([op, null, null, null, null , null, disp]);
-
-
-      }
-      else if (opType === InstrTypes.EMPTY){
+      else if (opType === InstrTypes.EMPTY) {
 
         e=e.substring(e.indexOf(" ")+1, e.length);
         e=e.trim();
@@ -659,7 +577,7 @@ console.log("e=" + e + " and op=" + op);
         regExists=this.testForRegisterPresence(rt, true);
 
         if(!regExists /*The Source Register does not exist*/){
-          this.setNotification("MULLER Source Register in instruction " + (i+1) + " does not exist");
+          this.setNotification("Source Register in instruction " + (i+1) + " does not exist");
           success=false;
           setTimeout((function(){
             home.setNotification("")
@@ -676,8 +594,8 @@ console.log("e=" + e + " and op=" + op);
     }
 
     console.log("instructions are" , instructions);
-    if (success){ /*  If there are no*/
-      home.setNotification(successfulCompilationNoti);
+    if (success) { /*  If there are no*/
+      home.setNotification(successfulAssembley);
     }
     setTimeout((function(){
       home.setNotification("");
@@ -690,101 +608,73 @@ console.log("e=" + e + " and op=" + op);
   }
 
   reset(){
-      this.resetRegisters();
-      this.resetMemory();
-      this.resetCounter();
+    this.resetRegisters();
+    this.resetMemory();
+    this.resetCounter();
   }
 
   resetCounter(){
-      this.setState({
-        secondsElapsed: 0
-      });
-      clearInterval(this.incrementer);
+    this.setState({ secondsElapsed: 0 });
+    clearInterval(this.incrementer);
   }
 
-  resetRegisters(){
-    /*
-    Iterate through registers and reset to their initial values.
-    */
-      for (var i=0; i < OP_REGS.length; i++){
-        armInstrs.LI(OP_REGS[i], 0);
+  resetRegisters() {
+    // Iterate through registers and reset to their initial values.
+    for (var i=0; i < OP_REGS.length; i++) {
+      armInstrs.LI(OP_REGS[i], 0);
+    }
+    for (var j=0; j < UTIL_REGS.length; j++) {
+      if (j == 0 || j == 2)
+        armInstrs.LI(UTIL_REGS[j], 1);
+      else
+        armInstrs.LI(UTIL_REGS[j], 0);
       }
-      for (var j=0; j < UTIL_REGS.length; j++){
-        if(j == 0 || j == 2){
-          armInstrs.LI(UTIL_REGS[j], 1);
-        }
-        else{
-            armInstrs.LI(UTIL_REGS[j], 0);
-        }
-
-      }
-      this.setState({operationRegs : OP_REGS, utilRegs : UTIL_REGS});
-
+    this.setState({operationRegs : OP_REGS, utilRegs : UTIL_REGS});
   }
 
-  memoryWipe(){
+  memoryWipe() {
     this.state.inputMem.clear();
     this.state.memory.clear();
     this.state.dataValStr = "";
     this.setState({inputMem})
     this.setState({memory: MEMORY})
   }
-  resetMemory(){
-    MEMORY.clear();
-    MEMORY_OPS.length=0; // This is a means of clearing the memory_Ops while maintaining the pointer.
 
+  resetMemory() {
+    MEMORY.clear();
+    // This clears the memory_Ops while retaining the pointer.
+    MEMORY_OPS.length = 0;
     for (let [k, v] of this.state.inputMem) {
-      /*    Read what was held in the inputArray, and put that in the MEMORY*/
+      // Read what was held in the inputArray, and put that in the MEMORY
       MEMORY.set(k, v);
     }
     this.setState({MEMORY, MEMORY_OPS, inputMem})
   }
 
-  updateDataArray(){
+  updateDataArray() {
     let dataValStr = this.state.dataValStr
 
-    if (dataValStr != null){
-        let strs = dataValStr.split(",")
-        const memMax = strs.length * 2
-        console.log("DFSD'");
-        for (const[k, v ] of MEMORY){
-          if (k < memMax){
-            strs[(k/2)] = v
-          }
-        }
-
-        dataValStr = strs.join(", ");
+    if (dataValStr != null) {
+      let strs = dataValStr.split(",");
+      const memMax = strs.length * 2;
+console.log("DFSD'");
+      for (const[k, v ] of MEMORY) {
+        if (k < memMax)
+          strs[(k/2)] = v;
       }
-
-    this.setState({dataValStr})
+      dataValStr = strs.join(", ");
     }
-
-  testForRegisterPresence(reg, isDest){
-
-    if (reg.toUpperCase() === "ZERO"){
-      return (true && isDest);
-    }
-    if (reg.length > 2){
-      return false;
-    }
-    else if(reg.substr(0,1) !== "R"){
-      return false;
-    }
-
-    let loc = 0;
-
-    try {
-      loc = parseInt(reg.substr(-1))
-    }
-    catch(err) {
-      return false;
-    }
-    if ( loc < OP_REGS.length & loc >= 0){
-      return true;
-    }
+    this.setState({dataValStr});
   }
 
-}
+  testForRegisterPresence(reg, isDest) {
+    if (reg.toUpperCase() === "ZERO") return isDest;
+    if (reg.length > 2 || reg.substr(0, 1) !== "R") return false;
 
+    let regNum = 0;
+    try { regNum = parseInt(reg.substr(-1)) } catch(err) { return false; }
+    return (regNum >= 0 && regNum < OP_REGS.length);
+  }
+}
 
 export default App;
