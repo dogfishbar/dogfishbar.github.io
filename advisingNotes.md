@@ -1,14 +1,16 @@
-## UPD/Academic Advising Notes
+## Notes on the Undergraduate Program Director role in the CS Department
 
 These are Bob Muller's notes on academic advising computer science students at BC. Most of the notes relate to the job of undergraduate program director but plain old academic advisors and students can find useful information too.
 
 If you know of some advising arcana that isn't on this list but should be on this list, please let me know.
 
+> Revised 5-27-2021
+>
 > Revised: 3-15-2019
 
 ---
 
-#### People (as of 3/2019)
+#### People (as of 5/2021)
 
 ##### Registrar
 
