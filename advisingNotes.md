@@ -13,9 +13,7 @@ If you know of some advising arcana that isn't on this list but should be on thi
 <details>
   <summary>Overview of Role</summary>
 The primary responsibilities of the job include overseeing the undergraduate degree programs in computer science and issues that arise relating to students enrolled in those programs or considering enrollment in those programs. The former includes ensuring that the course requirements for the programs are up to date and working as the department wishes. The latter includes evaluation of course substitution requests, courses taken at other institutions, whether by transfer or summer enrollment, and courses taken abroad.
-
 The undergraduate program director holds a once a year orientation meeting with new majors and minors. The orientation meeting is often held with selected faculty and junior and senior majors. The UPD is also responsible for working with Student Services ensure that graduating students have met the degree requirements.
-
 The undergraduate progam director is responsible for liaising with administrators in other departments and with Student Services. Among these responsibilities include annual review of the course catalog and of the degree audits. The undergraduate program director also works with the chair to manage the selection of honors designations for CS majors including Sophomore Scholars, Scholars of the College (juniors) as well as the annual Neuhauser Award.
 
 </details>
