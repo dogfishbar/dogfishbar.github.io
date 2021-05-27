@@ -1,4 +1,4 @@
-## Notes on the Undergraduate Program Director role in the CS Department
+## Notes on the Undergraduate Program Director role in CS @ BC
 
 These are Bob Muller's notes on academic advising computer science students at BC. Most of the notes relate to the job of undergraduate program director but plain old academic advisors and students can find useful information too.
 
@@ -10,30 +10,63 @@ If you know of some advising arcana that isn't on this list but should be on thi
 
 ---
 
-#### People (as of 5/2021)
+<details>
+  <summary>Overview of Role</summary>
+The primary responsibilities of the job include overseeing the undergraduate degree programs in computer science and issues that arise relating to students enrolled in those programs or considering enrollment in those programs. The former includes ensuring that the course requirements for the programs are up to date and working as the department wishes. The latter includes evaluation of course substitution requests, courses taken at other institutions, whether by transfer or summer enrollment, and courses taken abroad.
 
-##### Registrar
+The undergraduate program director holds a once a year orientation meeting with new majors and minors. The orientation meeting is often held with selected faculty and junior and senior majors. The UPD is also responsible for working with Student Services ensure that graduating students have met the degree requirements.
 
-+ **Kathy McGuinness,** *University Registrar,* [kathy.mcguinness@bc.edu](mailto:kathy.mcguinness@bc.edu), 2-4976
-+ **Mary French,** *Director, Academic Services,* [mary.french@bc.edu](mailto:mary.french@bc.edu), 2-4943
-+ **Ursula DellaPorta,** *Associate Registrar, Curriculum Management, Degree Audit, and Transfer Articulation,*
-  [ursula.dellaporta@bc.edu](mailto:ursula.dellaporta@bc.edu), 2-4739
-+ **Terry Lepore,** *Academic Progress Analyst,* [terrylynne.lepore@bc.edu](mailto:terrylynne.lepore@bc.edu), 2-4989
-+ **Terry Riordan,** *Course Administration Specialist,* [theresa.riordan@bc.edu](mailto:theresa.riordan@bc.edu), 2-3304
+The undergraduate progam director is responsible for liaising with administrators in other departments and with Student Services. Among these responsibilities include annual review of the course catalog and of the degree audits. The undergraduate program director also works with the chair to manage the selection of honors designations for CS majors including Sophomore Scholars, Scholars of the College (juniors) as well as the annual Neuhauser Award.
 
-##### A&S Class Deans
+</details>
 
-+ Michael Martin (Seniors): 2-2309
-+ Rory Brown (Firstyear & Sophomores **RETIRING**): 2-9259
-+ Rafael Luna (Juniors): 2-2516
 
----
 
-##### Forms
+### People (as of 5/2021)
+
+#### Registrar
+
+The main point of contact in the Registrar's office is **Whitney Hoyle**. All of the folks in the Registrar's office are very nice, competent and responsive.
+
++ **Whitney Hoyle,** *Associate Registrar, Academic Records/Grading/Commencement*,  [whitney.hoyle@bc.edu](mailto:whitney.hoyle@bc.edu), 2-2840
+
++ **Mary French,** *University Registrar,* [mary.french@bc.edu](mailto:mary.french@bc.edu), 2-4943
+
++ **Ursula DellaPorta,** *Associate Registrar, Curriculum Management/Degree Audit,* [ursula.dellaporta@bc.edu](mailto:ursula.dellaporta@bc.edu), 2-4739
+
++ **TBD (contact Whitney Hoyle),** *Assistant Registrar, Transfer Articulation/Cross-Registration/Internal Academic Data*
+
+#### Student Services On-line Forms
+
+[forms](https://www.bc.edu/bc-web/offices/student-services/registrar/academic-forms.html)
 
 + [Course Approval Form](https://www.bc.edu/content/dam/files/offices/stserv/academic/pdf/courseapproval.pdf) This is used for summer school courses.
 + [Degree Audit Course Substitution & Waiver Form](https://www.bc.edu/content/dam/files/offices/stserv/pdf/degreeauditsubform.pdf)
 + [OIP Degree Audit Course Substitution Form For Study Abroad](https://www.bc.edu/content/dam/files/offices/stserv/pdf/degreeauditsubform_OIP.pdf)
+
+
+#### MCAS Class Associate Deans
+
+The Associate Deans are assigned a graduation year. When problems crop up, it is often reasonable to confer with the student's class dean or refer the student to their class dean.
+
++ **Treseanne Ainsworth** Dean for Sophomores, Stokes S171, [treseanne.ainsworth@bc.edu](mailto:treseanne.ainsworth@bc.edu), 2-2800
++ **Joseph B. Desciak** Dean for Freshmen, **Director, Academic Advising Ctr.**, Stokes 140S, [joseph.desciak@bc.edu](mailto:joseph.desciak@bc.edu), 2-9259
++ **Rafael Luna** Dean for Juniors, [rafael.luna@bc.edu](mailto:rafael.luna@bc.edu), 2-2800
++ **Michael Martin** Dean for Seniors, Stokes 140S, [michael.martin.2@bc.edu](mailto:michael.martin.2@bc.edu), 2-2309
+
+#### Academic Advising Center
+
+https://www.bc.edu/bc-web/schools/mcas/undergraduate/advising/the-advising-process.html
+
+[Academic Policies](https://www.bc.edu/content/bc-web/schools/mcas/undergraduate/advising/academic-policies.html)
+
+
+#### Office of International Programs
+
+
+
+---
+
 
 ---
 
