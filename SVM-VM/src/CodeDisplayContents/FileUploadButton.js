@@ -42,7 +42,7 @@ export default class FileUploadButton extends React.Component {
       this.props.changeNoti("File Successfully Uploaded");
     }
     else{
-      this.props.changeNoti("File of that type cannot be uploaded.");
+      this.props.changeNoti("File of that sort cannot be uploaded.");
     }
 
   }
