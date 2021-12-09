@@ -61,22 +61,11 @@
       <li><a href="./assets/hutr0891.pdf">Abstract Semantics of First-Order Recursive Schemes</a>, Harvard University Technical Report 08-91, April 1991. This work was presented at the <i>IFIP Working Group 2.8 on Functional Programming Languages</i>, April 1991, Paris, France. This work was preliminary to <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fElFp20AAAAJ&citation_for_view=fElFp20AAAAJ:eQOLeE2rZwMC">Abstract Interpretation in Weak Powerdomains</a>. </li>
 
       <br>
-      <li><a href="./assets/hutr0490.pdf">Syntax Macros in M-LISP</a>, Harvard University Technical Report 06-90, Spring 1990. In this paper we consider syntactic abstraction in M-LISP, a dialect of LISP
-        which is independent of any representation of its programs. Since it
-        is independent of McCarthy's original Meta-expression representation scheme,
-        M-LISP has no {\em quotation} form or any of its related forms {\em backquote},
-        {\em unquote} or {\em unquote-splicing}. Given that LISP macro systems depend
-        on this latter representation model, it is not obvious how to base syntax
-        extensions in M-LISP. Our approach is based on an adaptation of the
-        {\em Macro-by-Example} \cite{kowa87} and {\em Hygienic} algorithms
-        \cite{kofrfedu86}. The adaptation for the quotation-free syntactic
-        structure of M-LISP yields a substantially different model of syntax macros.
-        The most important difference is that $\lambda$ binding patterns become
-        apparent when an abstraction is first (i.e., partially) transcribed in
-        the syntax tree. This allows us to define tighter restrictions on the
-        capture of identifiers. This is not possible in S-expression dialects
-        such as Scheme since $\lambda$ binding patterns are not apparent until
-      the tree is completely transcribed.</li>
+      <li><a href="./assets/hutr0490.pdf">Syntax Macros in M-LISP</a>, Harvard University Technical Report 06-90, Spring 1990.
+        <p>In this paper we present an efficient algorithm for avoiding unintended name captures during syntax macro transcription in LISP. The algorithm is a hybrid of Kohlbecker's <i>Macro-by-Example</i> and <i>Hygienic</i> algorithms adapted for a representation-independent dialect of LISP. The adaptation yields a substantially different model of syntax macros than is found in S-expression LISP dialects. The most important difference is that the lambda binding patters become apparent when an abstraction is first (i.e., partially) transcribed in the syntax tree. This allows us to avoid a larger class of anme captures than is possible in S-expression dialects such as Scheme where lambda binding patterns are not apparent until the tree is completely transcribed.
+        </p>
+
+      </li>
 
     </ol>
     
