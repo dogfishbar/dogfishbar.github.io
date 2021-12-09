@@ -1,6 +1,4 @@
-title: Maya's Homepage
-baseurl: ""
-author:
-  name: Cleo
-  email: robert.muller2@gmail.com
-remote_theme: jekyll/minima
+title: Robert Muller
+
+email: robert.muller2@gmail.com
+theme: jekyll-theme-minimal
