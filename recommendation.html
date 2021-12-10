@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Robert Muller</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Robert Muller" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://dogfishbar.github.io/testing-gh-pages/" />
+<meta property="og:url" content="https://dogfishbar.github.io/testing-gh-pages/" />
+<meta property="og:site_name" content="Robert Muller" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Robert Muller" />
+<script type="application/ld+json">
+{"url":"https://dogfishbar.github.io/testing-gh-pages/","@type":"WebSite","headline":"Robert Muller","name":"Robert Muller","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/testing-gh-pages/assets/css/style.css?v=a4c2064f7b1946efe6629a77fe186ee28b9f79b5">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/testing-gh-pages/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="wrapper">
+<!--      
+      <header>
+      </header>
+-->
+<!--      <section> -->
+<h2>Technical Reports</h2>
+
+    <ul>
+      <li>
+        <a href="./assets/MWhosc.pdf">Two Applications of Standardization and Evaluation in Combinatory Reduction Systems</a>, with <a href="http://www.macs.hw.ac.uk/~jbw/">J. B. Wells</a>, Summer 2000.
+<p>We present two worked applications of a general framework that can be used to support reasoning about the operational equality relation defined by a programming language semantics. The framework, based on Combinatory Reduction Systems, facilitates the proof of standardization theorems for programming calculi.  The importance of standardization theorems to programming language semantics was shown by Plotkin in [Plo75]: standardization together with confluence guarantee that two terms equated in the calculus are semantically equal. We apply the framework to the $\lambda_v$-calculus and to an untyped version of the $\lambda$^{CIL}-calculus. The latter is a basis for an intermediate language used in a compiler.</p>
+
+        <p><i>This paper and the companion paper immediately below were
+          provisionally accepted for publication in a journal.  Neither
+          paper was published.</i></p>
+
+      </li>
+
+      <li><a href="./assets/WMhosc.pdf">Standardization and Evaluation in Combinatory Reduction Systems (Working Paper)</a>, with <a href="http://www.macs.hw.ac.uk/~jbw/">J. B. Wells</a>, Summer 2000.
+<p>A rewrite system has <i>standardization</i> iff for any rewrite
+sequence there is an equivalent one which contracts the redexes in
+a <i>standard</i> order. Standardization is extremely useful for finding
+normalizing strategies and proving that a rewrite system for a
+programming language is sound with respect to the language's
+operational semantics.<br>
+
+Although for some rewrite systems the standard-order can be simple,
+e.g., left-to-right or outermost first, many systems need a more
+delicate order. There are abstract notions of standard order which
+always apply, but proofs (often quite difficult) are required that the
+rewrite system satisfies a number of axioms and not much guidance is
+provided for finding a conrete order that satisfies the abstract
+definition.<br>
+
+This paper gives a framework based on combinatory redution systems
+(CRS's) which is general enough to handle many programming
+languages. If the CRS is orthogonal and fully extended and a good
+redex ordering can be found, then a standard order is obtained together
+with the standardization theorem. If the CRS also satises further
+criteria, then a good redex ordering is mechanially obtained from the
+rewrite rules. If the CRS is a construtor system and satises an
+additional requirement, then definitions of <i>value</i> and <i>evaluation</i>
+providing an operational semantis are automatially obtained together
+with a Plotkin/Wadsworth/Felleisen-style standardization theorem.
+</p>
+</li>
+
+      <li><a href="./assets/hutr0692.pdf">Lecture Notes on Domain Theory</a>, Harvard University CRCT Technical Report 06-92, June 1992.
+<p>What follows is a collection of lecture notes for a series of three lectures introducing Scott's <i>domain theory</i>. The lecture notes are not intended to serve as a primary reference but rather as a supplement to a more comprehensive treatment such as [Sch86] or [Sto77].
+</p>
+        <i>These notes were presented in a series of guest lectures for Harvard's Spring 1992 section of <i>CS 152 Programming Languages</i>, taught by <a href="http://www.eecs.harvard.edu/shieber/">Stuart Shieber</a>.</i></li>
+
+      <br>
+        
+      <li><a href="./assets/hutr0891.pdf">Abstract Semantics of First-Order Recursive Schemes</a>, with Yuli Zhou, Harvard University CRCT Technical Report 08-91, April 1991. 
+        <p>We develop a general framework for deriving abstract domains from concrete semantic domains in the context of first-order recursive schemes and prove several theorems which ensure the correctness (safety) of abstract computations. The abstract domains, which we call <i>Weak Hoare powerdomains</i>, subsume the roles of both the abstract domains and the collecting interpretations in the abstract interpretation literature.</p>
+        <p>
+          <i>This report was presented at the <i>IFIP Working Group 2.8 on Functional Programming Languages</i>, Paris, France, April 1991. This work was preliminary to <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fElFp20AAAAJ&citation_for_view=fElFp20AAAAJ:eQOLeE2rZwMC">Abstract Interpretation in Weak Powerdomains</a>.</i>
+          </p>
+</li>
+
+      <li><a href="./assets/hutr0490.pdf">Syntax Macros in M-LISP</a>, Harvard University CRCT Technical Report 04-90, Spring 1990.
+        <br>
+        <p>We present an efficient algorithm for avoiding unintended name captures during syntax macro transcription in LISP. The algorithm is a hybrid of Kohlbecker's <i>Macro-by-Example</i> and <i>Hygienic</i> algorithms adapted for a representation-independent dialect of LISP. The adaptation yields a substantially different model of syntax macros than is found in S-expression LISP dialects. The most important difference is that the lambda binding patterns become apparent when an abstraction is first (i.e., partially) transcribed in the syntax tree. This allows us to avoid a larger class of name captures than is possible in S-expression dialects such as Scheme where lambda binding patterns are not apparent until the tree is completely transcribed.
+        </p>
+
+      </li>
+
+    </ul>
+
+    <br>
+<!--      </section> -->
+      <footer>
+<!--        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+-->
+      </footer>
+    </div>
+    <script src="/testing-gh-pages/assets/js/scale.fix.js"></script>
+  </body>
+</html>
