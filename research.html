@@ -55,6 +55,8 @@
 
 Most of my published papers can be found <a href="https://scholar.google.com/citations?hl=en&user=fElFp20AAAAJ&scilu=&scisig=AMD79ooAAAAAYbGPbBg36mkj4rmxXgpk8N6y-bMFu9Fo&gmla=AJsN-F6IQHO2Nqhz22sPy9f813W-0M_XMxOrd0GtWW67sGBo_k7ipa-H-QoqIh2frBwhjCq5T74mGzKLVof_lt3YwuBYe_iGiTj1ymdXtbu5usdq_By_JaE&sciund=12881563884943149583">here</a> and technical reports can be found <a href="technicalreports.html">here</a>.<br>
 
+<h3>Retrospective</h3>
+
 Generally speaking, I've worked on the design and implementation of
 <a href="https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_value">call-by-value</a>
   and <i>mostly functional</i> programming languages, early on with
@@ -92,8 +94,17 @@ The answer came to me in a flash one morning late in 1989.
 There was a simple error in the original definition LISP.  The
 error appears on page 15 of <a href="">John McCarthy</a>'s
 seminal 1960 paper introducing LISP:
-<img src="assets/mccarthyerror.png" height=200>
+<img src="assets/mccarthyerror.png">
+The error is highlighted above.  Correcting this error and
+tidying up the downstream consequences, leads to a simpler
+programming language but the metalinguistic power is gone.
+</p>
 
+<p>This problem and the related issues are explored in detail in
+<a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fElFp20AAAAJ&citation_for_view=fElFp20AAAAJ:2osOgNQ5qMEC">M-LISP: A representation-independent dialect of LISP with reduction semantics</a>. 
+</p>
+Among other things, this work taught me that both common knowledge
+and really smart people are often wrong.
 
 <h3>Type-Directed Compilation</h3>
 
