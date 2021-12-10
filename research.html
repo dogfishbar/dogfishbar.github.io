@@ -49,12 +49,11 @@
 -->
 <!--      <section> -->
 <div class="a">Robert Muller</div>
-
 <hr>
 
 <h2>Research</h2>
 
-Most of my published papers can be found <a href="https://scholar.google.com/citations?hl=en&user=fElFp20AAAAJ&scilu=&scisig=AMD79ooAAAAAYbGPbBg36mkj4rmxXgpk8N6y-bMFu9Fo&gmla=AJsN-F6IQHO2Nqhz22sPy9f813W-0M_XMxOrd0GtWW67sGBo_k7ipa-H-QoqIh2frBwhjCq5T74mGzKLVof_lt3YwuBYe_iGiTj1ymdXtbu5usdq_By_JaE&sciund=12881563884943149583">here</a> and technical reports can be found <a href="technicalreports.html">here</a>.
+Most of my published papers can be found <a href="https://scholar.google.com/citations?hl=en&user=fElFp20AAAAJ&scilu=&scisig=AMD79ooAAAAAYbGPbBg36mkj4rmxXgpk8N6y-bMFu9Fo&gmla=AJsN-F6IQHO2Nqhz22sPy9f813W-0M_XMxOrd0GtWW67sGBo_k7ipa-H-QoqIh2frBwhjCq5T74mGzKLVof_lt3YwuBYe_iGiTj1ymdXtbu5usdq_By_JaE&sciund=12881563884943149583">here</a> and technical reports can be found <a href="technicalreports.html">here</a>.<br>
 
 Generally speaking, I've worked on the design and implementation of
 <a href="https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_value">call-by-value</a>
@@ -74,6 +73,15 @@ compilers.  From my perspective, I made two principal contributions.
 
 <h3>Sorting Out LISP's Metalinguistic Power</h3>
 
+Programming in LISP is incredibly fun! Symbolic expressions
+(S-expressions) are the ultimate flexible recursive data structures,
+immutability is the default and, since everything is an S-expression,
+it's easy to write meta-programs &#8211 programs that work on the
+representations of other programs.
+<br>
+But something seems a little fishy how can <tt>(bobcat deer bear)</tt>
+be a <i>list</i> while <tt>(find bobcat bobcats)</tt> be a function
+call?
 
 
 <h3>Type-Directed Compilation</h3>
