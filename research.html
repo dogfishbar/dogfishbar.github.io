@@ -70,18 +70,29 @@ summer of 1977.
 My work has ranged from more theoretical aspects of programming languages
 to concrete implementation-oriented issues that arise in optimizing
 compilers.  From my perspective, I made two principal contributions.
+</p>
 
 <h3>Sorting Out LISP's Metalinguistic Power</h3>
 
 Programming in LISP is incredibly fun! Symbolic expressions
 (S-expressions) are the ultimate flexible recursive data structures,
 immutability is the default and, since everything is an S-expression,
-it's easy to write meta-programs &#8211 programs that work on the
-representations of other programs.
+it's fairly easy to write meta-programs &#8211 programs that work on
+the representations of other programs.
+
 <br>
-But something seems a little fishy how can <tt>(bobcat deer bear)</tt>
-be a <i>list</i> while <tt>(find bobcat bobcats)</tt> be a function
-call?
+
+But something seems a little fishy &#8211 how can the form
+<tt>(bobcat deer bear)</tt> be a <i>list</i> while the form
+<tt>(find bobcat bobcats)</tt> is a <i>function call</i>?
+This was the question put to me by 
+<a href="https://www.ccs.neu.edu/home/wand/">Mitch Wand</a> 
+early in 1988. I spent untold hours thinking about this puzzle.
+The answer came to me in a flash one morning late in 1989.
+There was a simple error in the definition LISP.  It appears
+on page 15 of <a href="">John McCarthy</a>'s seminal 1960 paper
+introducing LISP:
+<img src="assets/mccarthyerror.png">
 
 
 <h3>Type-Directed Compilation</h3>
