@@ -201,12 +201,12 @@ Consider the code snippet
 </p>
 <p>
   In the example on the left, the type <tt>t1</tt> denotes a heap-allocated
-  record. The fields <tt>a</tt> and <tt>b</tt> of the record reside in
-  consecutive words in the heap. The base address of the record is allocated
-  in virtual register <tt>r1</tt>.  In the example on the right, the type
-  <tt>t1</tt> denotes the same record but with no allocation at all, the
-  fields of the record are allocated directly in virtual registers <tt>r1</tt>
-  and <tt>r2</tt>.
+  record where the integer fields <tt>a</tt> and <tt>b</tt> are allocated in
+  consecutive memory words. The base address of the record is
+  allocated in virtual register <tt>r1</tt>.  In the example on the right,
+  the type <tt>t1</tt> denotes the same record but with no allocation at
+  all, the fields of the record are allocated directly in virtual registers
+  <tt>r1</tt> and <tt>r2</tt>.
 <!--      </section> -->
       <footer>
 <!--        
