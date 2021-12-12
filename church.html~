@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Robert Muller</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Robert Muller" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://dogfishbar.github.io/testing-gh-pages/" />
+<meta property="og:url" content="https://dogfishbar.github.io/testing-gh-pages/" />
+<meta property="og:site_name" content="Robert Muller" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Robert Muller" />
+<script type="application/ld+json">
+{"url":"https://dogfishbar.github.io/testing-gh-pages/","@type":"WebSite","headline":"Robert Muller","name":"Robert Muller","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/testing-gh-pages/assets/css/style.css?v=a4c2064f7b1946efe6629a77fe186ee28b9f79b5">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/testing-gh-pages/favicon.ico" -->
+
+<!-- end custom head snippets -->
+<style>
+  div.a {
+  text-align: right;
+  }
+</style>
+
+  </head>
+  <body>
+    <div class="wrapper">
+<!--      
+      <header>
+      </header>
+-->
+<!--      <section> -->
+
+<div class="a">Robert Muller</div>
+<hr>
+
+<h3>Need a letter of recommendation?</h3>
+
+<p>Strong letters of recommendation are an essential part of an
+application for graduate school (CS, MBA, Law, Medicine, ...).
+They are also very useful for applications for jobs and internships.
+I write recommendation letters for many of my current or former
+students.  If you are a current or former student, it may be
+reasonable to ask me for a letter of recommendation.  This page
+will help give you an idea if I can write a strong, supportive
+letter for you and it specifies what materials I would need in
+order to write the letter.</p>
+
+<h4>Should I ask for a letter?</h4>
+
+A necessary condition for a strong recommendation from me is to have
+worked with me for at least one year. This year of work might
+be in the form of two semesters of classes or it might be in the form
+of one class together with some sort of departmental job such as a
+webmaster or research or teaching assistant. If I've worked with you
+for a year <i>and</i> you've done well (i.e., you've fulfilled your
+commitments, you've applied yourself and you've demonstrated that
+you've learned something) then you should feel free to call on me
+for a letter any time, even years later.  In some cases I can write
+a stronger letter for someone earning a lesser grade; it all hinges
+on whether the student has applied themselves and has worked to
+the best of their ability.
+
+<p>
+
+  I <i>can</i> write a recommendation letter based on only one semester
+  of experience with a student but such letters are usually less
+  well-developed and are therefore less helpful. Except under unusual
+  circumstances, if you have not taken at least one class with me, it's
+  probably not appropriate to ask me for a letter of recommendation;
+  consider someone else.
+
+  <h4>Unsolicited Advice</h4>
+
+  <ul>
+   <li>Yes, you'll need to <i>ask</i> the person from whom you're requesting
+      a letter &#8211 don't assume that they're willing to write just because
+      you took a class with them.<br> Give a little thought to the best way
+      to ask this particular person, it will vary from person to person
+      and depend on their generational norms. I prefer to
+     field such requests in in-person conversations. Send an email requesting
+     an appointment to discuss it.
+      
+   <li>It's almost always unwise to fail to check the box forfeiting
+     your right to read your recommendation letter. That is,
+     non-confidential recommendation letters have little to no value.
+  </ul>
+
+  <h4>What I need to write my letter:</h4>
+
+  Having read the above, if you've decided to ask me for a letter, here
+  is what I need:
+  <ol>
+    <li> Sufficient time &#8211 usually at least one month,
+    <li> A recent resume,
+    <li> If you are using
+      <a href="https://www.commonapp.org/">The Common App</a> or a
+      similar aggregator which requires you to enter an email address
+      for me, you must register me with the email address
+      <b>robert.muller@bc.edu</b>.
+    <li> if you are a current student, a degree audit with annotation
+      showing which course(s) you took from me,
+    <li> if you are not a current student, complete information about
+      the course(s) you took from me, (year, semester and grade earned),
+    <li> a paragraph or two explaining why you are applying for the
+      program/job in question and
+    <li> the date of the closest deadline.
+  </ol>
+
+    <br>
+<!--      </section> -->
+      <footer>
+<!--        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+-->
+      </footer>
+    </div>
+    <script src="/testing-gh-pages/assets/js/scale.fix.js"></script>
+  </body>
+</html>
