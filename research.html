@@ -112,9 +112,10 @@ of common knowledge.
 
 <h3>2. Type-Directed Compilation</h3>
 
-<p>This work was carried out during my tenure as an Assistant
-  Professor at Boston College.  It was published in a number of
-  articles, most notably in a 2000 JFP article
+<p>This work was carried out as the principal focus of the Church
+  Project during my tenure as an Assistant Professor.  It was
+  published in a number of articles, most notably in a 2002 JFP
+  article
   <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fElFp20AAAAJ&citation_for_view=fElFp20AAAAJ:zYLM7Y9cAGgC">A calculus with polymorphic and polyvariant flow types</a>, joint with Joe Wells, Lyn Turbak
   and Allyn Dimock.
 </p>
@@ -142,44 +143,38 @@ example, the following snippet of code
 <p>produces a 3-tuple as a value, using 3 principal functions <tt>k</tt>,
   <tt>g</tt> and <tt>h</tt>.  The example illustrates non-trivial flow
   of functions to various call sites. In the IR, the program is
-  represented with both type and flow information.
+  represented with both type and integer flow labels.
 </p>
 <img src="assets/cil2.png">
 <p>
   In the diagram, arrows represent flow. The function <tt>k</tt> can
-flow to two different call sites, specifically call site 4 or call site
-6. The function is represented as a <i>virtual 2-tuple</i>, allowing
-  for the possibility of two different copies of <tt>k</tt>. The compiler
+flow to two different call sites, site 4 or site 6.
+  The function is represented as a <i>virtual 2-tuple</i> of intersection
+  type. This allows the compiler the option of generating two different
+  copies of <tt>k</tt> in a type-safe manner. The compiler
   can choose to reify the virtual 2-tuple into a real heap-allocated 2-tuple
   in the object code. This process is called <i>source splitting</i>.
 </p>
 <img src="assets/cil3.png">
 <p>
-  The type system also allows the compiler split sinks by reifying
-  virtual case dispatches to real case dispatches in the object code.
+  The type system also allows the compiler to perform <i>sink splitting</i>
+  by reifying virtual <tt>case</tt> dispatches to real case dispatches in
+  the object code.
   </p>
 <img src="assets/cil4.png">
-<p>
-  I worked on high-performance certifying compilers for higher-order
-  typed programming languages such as Standard ML. I spent several
-years working as a founding member of the Church Project.
+</p>
 
-<br>
-  Together with Robert Harper, I co-founded the ACM Types in
-  Compilation (TIC) series of workshops. The TIC workshop series
-  subsequently evolved into the ACM Types in Language Design and
-  Implementation (TLDI) series of workshops. The last of these met in
-  2012.</p>
-
-<h3>2. Type-Directed Register Allocation</h3>
+<h3>3. Type-Directed Register Allocation</h3>
 
 This was joint with
 <a href="https://people.cs.ksu.edu/~tamtoft/">Torben Amtoft</a>, then
-a postdoc working with the Church Project.  I would like to highlight
-that <i>virtually all of the heavy lifting in this project was done by
-Torben Amtoft.</i>  This work appeared in the proceedings the 2003
-TLDI Workshop.  In retrospect, it probably should have been submitted
-to PLDI or ICFP where it would have received a wider reading.</p>
+a postdoc working with the Church Project.  Virtually all of the heavy
+lifting in this project was done by Torben Amtoft.  This work was
+published
+<a href=""></a> which appeared in the proceedings the 2003
+Types in Language Design and Implementation (TLDI) Workshop.
+In retrospect, it should have been submitted to PLDI or ICFP where
+it would have had more impact.</p>
 
 <img src="assets/alloc1.png" width=300>
 
