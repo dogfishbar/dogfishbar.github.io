@@ -88,9 +88,7 @@ Programming in LISP is incredibly fun! Symbolic expressions
 immutability is the default and, since everything is an S-expression,
 it's fairly easy to write meta-programs &#8211 programs that work on
 the representations of other programs.
-
 <br>
-
 But something seems a little fishy &#8211 how can the form
 <tt>(bobcat deer bear)</tt> be a <i>list</i> while the form
 <tt>(find bobcat bobcats)</tt> is a <i>function call</i>?  This was
@@ -117,22 +115,34 @@ of common knowledge.
 <p>Sometime in 1995 I attended a talk by
 <a href="http://trevorjim.com/">Trevor Jim</a> on
 <a href="https://dl.acm.org/doi/10.1145/237721.237728">principal typings</a>.
-Subsequent conversations with my PhD advisor
-Assaf Kfoury
+Subsequent conversations with Assaf Kfoury,
 <a href="http://www.macs.hw.ac.uk/~jbw/">Joe Wells</a> and
-<a href="https://cs.wellesley.edu/~fturbak/">Lyn Turbak</a>
-led to the establishment of the Church Project, a joint
-research project between Boston University, Wellesley College and
-Boston College. The central focus of the Church Project was the
-design and development of a typed intermediate language for the
-compilation of ML-like programming languages.</p>
-
+<a href="https://cs.wellesley.edu/~fturbak/">Lyn Turbak</a> led to the
+establishment of the Church Project, a joint research project between
+Boston University, Wellesley College and Boston College. The central
+focus of the Church Project was the design and development of a typed
+intermediate language (TIL) that might be used in a reliable
+optimizing compiler for ML-like programming languages. The advantage
+of a <i>typed</i> IL over an untyped one is that the compiler can
+type-check the intermediate representation (IR) after transformation
+steps.  The particular TIL developed in the Church Project used
+interesection and union types together with flow labels. This enabled
+the compiler to track the flow of values to their consumption sites
+and to choose data representations in a safe and flexible way. For
+example, the following snippet of code
+</p>
 <div align="center"><img src="assets/cil1.png" width=300></div>
-
-<p>This is some text.</p>
-
-<img src="assets/cil2.png" width=400>
-<img src="assets/cil3.png" width=400>
+<p>produces a 3-tuple as a value, using 3 principal functions <tt>k</tt>,
+  <tt>g</tt> and <tt>h</tt>.  The example illustrates non-trivial flow
+  of functions to various call sites. In the IR, the program is
+  represented in a way that ...
+</p>
+<img src="assets/cil2.png">
+<p>
+  The IR above can be ...
+</p>
+<p>
+  <img src="assets/cil3.png" width=400>
 <img src="assets/cil4.png" width=400>
 
 <br>
