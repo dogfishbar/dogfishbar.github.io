@@ -166,7 +166,7 @@ flow to two different call sites, site 4 or site 6.
 <img src="assets/cil4.png">
 </p>
 
-<h3>3. Type-Directed Register Allocation</h3>
+<h3>3. An Effectful Type System with Storage Annotations</h3>
 
 This was joint with
 <a href="https://people.cs.ksu.edu/~tamtoft/">Torben Amtoft</a>, then
@@ -203,6 +203,9 @@ Function <tt>f</tt> has two free variables while
   the type <tt>t1</tt> denotes the same record but with no allocation at
   all &#8211 the fields of the record are allocated directly in virtual
   registers <tt>r1</tt> and <tt>r2</tt>.
+  <br>
+  The type system is proven sound so any typing gives rise to consistent
+  execution.
 <!--      </section> -->
       <footer>
 <!--        
