@@ -112,6 +112,12 @@ of common knowledge.
 
 <h3>2. Type-Directed Compilation</h3>
 
+<p>This work was carried out during my tenure as an Assistant
+  Professor at Boston College.  It was published in a number of
+  articles, most notably in a 2000 JFP article
+  <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fElFp20AAAAJ&citation_for_view=fElFp20AAAAJ:zYLM7Y9cAGgC">A calculus with polymorphic and polyvariant flow types</a>, joint with Joe Wells, Lyn Turbak
+  and Allyn Dimock.
+</p>
 <p>Sometime in 1995 I attended a talk by
 <a href="http://trevorjim.com/">Trevor Jim</a> on
 <a href="https://dl.acm.org/doi/10.1145/237721.237728">principal typings</a>.
@@ -127,7 +133,8 @@ of a <i>typed</i> IL over an untyped one is that the compiler can
 type-check the intermediate representation (IR) after transformation
 steps.  The particular TIL developed in the Church Project used
 interesection and union types together with flow labels. This enabled
-the compiler to track the flow of values to their consumption sites
+the compiler to track the flow of values from their creation points to
+their consumption sites
 and to choose data representations in a safe and flexible way. For
 example, the following snippet of code
 </p>
@@ -135,14 +142,21 @@ example, the following snippet of code
 <p>produces a 3-tuple as a value, using 3 principal functions <tt>k</tt>,
   <tt>g</tt> and <tt>h</tt>.  The example illustrates non-trivial flow
   of functions to various call sites. In the IR, the program is
-  represented in a way that ...
+  represented with both type and flow information.
 </p>
 <img src="assets/cil2.png">
 <p>
-  The IR above can be ...
+  In the diagram, arrows represent flow. The function <tt>k</tt> can
+flow to two different call sites, specifically call site 4 or call site
+6. The function is represented as a <i>virtual 2-tuple</i>, allowing
+  for the possibility of two different copies of <tt>k</tt>. The compiler
+  can choose to reify the virtual 2-tuple into a real heap-allocated 2-tuple
+  in the object code. This process is called <i>source splitting</i>.
 </p>
+<img src="assets/cil3.png" width=400>
 <p>
-  <img src="assets/cil3.png" width=400>
+  The type system also allows the compiler split sinks by reifying
+  virtual case dispatches to real case dispatches in the object code.
 <img src="assets/cil4.png" width=400>
 
 <br>
