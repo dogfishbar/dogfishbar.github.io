@@ -75,45 +75,7 @@ From my perspective, three of my projects/collaborations are worth
 highlighting.
 </p>
 
-<h3>1. Sorting Out LISP's Metalinguistic Power</h3>
-
-<p>This work was carried out as the principal focus of my PhD thesis
-  at Boston University under the direction of
-<a href="https://www.bu.edu/cs/profiles/assaf-kfoury/">Assaf Kfoury</a>
-with additional advising by
-<a href="https://www.ccs.neu.edu/home/wand/">Mitch Wand</a>. It was
-published in a 1992 TOPLAS article
-<a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fElFp20AAAAJ&citation_for_view=fElFp20AAAAJ:2osOgNQ5qMEC">M-LISP: A representation-independent dialect of LISP with reduction semantics</a>.
-</p>
-<p>
-Programming in LISP is great fun! Symbolic expressions
-(S-expressions) are the ultimate flexible recursive data structures,
-immutability is the default and, since everything is an S-expression,
-it's fairly easy to write meta-programs &#8211 programs that work on
-the representations of other programs.
-<br>
-But something seems a little fishy &#8211 how can the form
-<tt>(bobcat deer bear)</tt> be a <i>list</i> while the form
-<tt>(find bobcat bobcats)</tt> is a <i>function call</i>?  This was
-the question put to me by Mitch Wand when I was a graduate student in
-1987. I spent untold hours thinking about this puzzle.  The answer
-came to me in a flash one morning in the summer of 1988 &#8211
-<b>there is a simple error in the original definition LISP</b>. (!)
-The error appears on page 15 of <a href="https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)">John McCarthy</a>'s
-seminal 1960 paper introducing LISP: <a href="http://www-formal.stanford.edu/jmc/recursive.pdf">Recursive Functions of Symbolic Expressions and Their Computation by Machine</a>.
-<img src="assets/mccarthyerror.png">
-The error, highlighted above, was subsequently propagated into all derivative
-dialects of LISP including Scheme and Racket.  Correcting the
-error and tidying up the downstream consequences leads to a simpler
-programming language but the metalinguistic power is lost.  The
-details are laid out in the aforementioned TOPLAS article.
-</p>
-
-Among other things, this work taught me a healthy skepticism
-of common knowledge.
-</p>
-
-<h3>2. Type-Directed Compilation with Flow Types</h3>
+<h3>1. Type-Directed Compilation with Flow Types</h3>
 
 <p>This work was carried out as the principal focus of the Church
   Project during my tenure as an Assistant Professor.  It was
@@ -126,7 +88,9 @@ of common knowledge.
 Sometime in 1995 I attended a talk by
 <a href="http://trevorjim.com/">Trevor Jim</a> on
 <a href="https://dl.acm.org/doi/10.1145/237721.237728">principal typings</a>.
-Subsequent conversations with Assaf Kfoury,
+Subsequent conversations with 
+my PhD advisor
+<a href="https://www.bu.edu/cs/profiles/assaf-kfoury/">Assaf Kfoury</a>,
 <a href="http://www.macs.hw.ac.uk/~jbw/">Joe Wells</a> and
 <a href="https://cs.wellesley.edu/~fturbak/">Lyn Turbak</a> led to the
 establishment of the Church Project, a joint research project between
@@ -168,7 +132,7 @@ flow to two different call sites, site 4 or site 6.
 <img src="assets/cil4.png">
 </p>
 
-<h3>3. An Effectful Type System with Storage Annotations for Interprocedural Allocation</h3>
+<h3>2. An Effectful Type System with Storage Annotations for Interprocedural Allocation</h3>
 
 This was joint with
 <a href="https://people.cs.ksu.edu/~tamtoft/">Torben Amtoft</a>, then
@@ -208,6 +172,45 @@ Function <tt>f</tt> has two free variables while
   <br>
   The type system is proven sound so any typing gives rise to consistent
   execution.
+</p>
+
+<h3>3. Sorting Out LISP's Metalinguistic Power</h3>
+
+<p>This work was carried out as the principal focus of my PhD thesis
+  at Boston University under the direction of Assaf Kfoury
+with additional advising by
+<a href="https://www.ccs.neu.edu/home/wand/">Mitch Wand</a>. It was
+published in a 1992 TOPLAS article
+<a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fElFp20AAAAJ&citation_for_view=fElFp20AAAAJ:2osOgNQ5qMEC">M-LISP: A representation-independent dialect of LISP with reduction semantics</a>.
+</p>
+<p>
+Programming in LISP is great fun! Symbolic expressions
+(S-expressions) are the ultimate flexible recursive data structures,
+immutability is the default and, since everything is an S-expression,
+it's fairly easy to write meta-programs &#8211 programs that work on
+the representations of other programs.
+<br>
+But something seems a little fishy &#8211 how can the form
+<tt>(bobcat deer bear)</tt> be a <i>list</i> while the form
+<tt>(find bobcat bobcats)</tt> is a <i>function call</i>?  This was
+the question put to me by Mitch Wand when I was a graduate student in
+1987. I spent untold hours thinking about this puzzle.  The answer
+came to me in a flash one morning in the summer of 1988 &#8211
+<b>there is a simple error in the original definition LISP</b>. (!)
+The error appears on page 15 of <a href="https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)">John McCarthy</a>'s
+seminal 1960 paper introducing LISP: <a href="http://www-formal.stanford.edu/jmc/recursive.pdf">Recursive Functions of Symbolic Expressions and Their Computation by Machine</a>.
+<img src="assets/mccarthyerror.png">
+The error, highlighted above, was subsequently propagated into all derivative
+dialects of LISP including Scheme and Racket.  Correcting the
+error and tidying up the downstream consequences leads to a simpler
+programming language but the metalinguistic power is lost.  The
+details are laid out in the aforementioned TOPLAS article.
+</p>
+
+Among other things, this work taught me a healthy skepticism
+of common knowledge.
+</p>
+
 <!--      </section> -->
       <footer>
 <!--        
