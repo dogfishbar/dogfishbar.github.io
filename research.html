@@ -189,8 +189,7 @@ Function <tt>f</tt> has two free variables while
     annotations</i> <tt>ri</tt> for <i>virtual register</i> <tt>i</tt>,
   <tt>H</tt> for <i>heap</i> and <tt>o</tt> for no allocation at all.
   The type system can be used in a
-  <a href="https://en.wikipedia.org/wiki/Defunctionalization">defunctionalizing</a> compiler.
-  The type system tracks the allocation of values from their production
+  <a href="https://en.wikipedia.org/wiki/Defunctionalization">defunctionalizing</a> compiler to track the allocation of values from their creation
   sites to their consumption sites.
 </p>
 <p>
@@ -199,11 +198,11 @@ Function <tt>f</tt> has two free variables while
 <p>
   In the example on the left, the type <tt>t1</tt> denotes a heap-allocated
   record where the integer fields <tt>a</tt> and <tt>b</tt> are allocated in
-  consecutive memory words. The base address of the record is
+  consecutive memory words. The base address of the block of memory is
   allocated in virtual register <tt>r1</tt>.  In the example on the right,
   the type <tt>t1</tt> denotes the same record but with no allocation at
-  all, the fields of the record are allocated directly in virtual registers
-  <tt>r1</tt> and <tt>r2</tt>.
+  all &#8211 the fields of the record are allocated directly in virtual
+  registers <tt>r1</tt> and <tt>r2</tt>.
 <!--      </section> -->
       <footer>
 <!--        
