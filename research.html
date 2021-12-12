@@ -180,21 +180,32 @@ In retrospect, this paper should have been submitted to a major
 conference such as PLDI or ICFP where it likely would have had
 greater impact.
 </p>
+Consider the code snippet
 <p>
 <div align="center"><img src="assets/alloc1.png" width=300></div>  
 
 <br><br>
 
-<p>In the example, function <tt>f</tt> has two free variables while
-  function <tt>g</tt> has only one.  Either function might be applied
-  at the call site. The paper develops a type system with storage
-  annotations. The type system tracks the allocation of values either
-  in virtual registers, the heap or with no allocation at all.
+<p>Function <tt>f</tt> has two free variables while
+  function <tt>g</tt> has one.  Either function might be applied
+  at the call site. The paper develops a type system with <i>storage
+    annotations</i> <tt>ri</tt> for <i>virtual register</i> <tt>i</tt>,
+  <tt>H</tt> for <i>heap</i> and <tt>o</tt> for no allocation at all.
+  The type system can be used in a
+  <a href="https://en.wikipedia.org/wiki/Defunctionalization">defunctionalizing</a> compiler.
+  The type system tracks the allocation of values from their production
+  sites to their consumption sites.
 </p>
-
+<p>
 <img src="assets/alloc2.png">
-
-    <br>
+</p>
+<p>
+  In the example on the left, the type <tt>t1</tt> denotes a heap-allocated
+  record with base address in virtual register <tt>r1</tt>.  The fields
+  <tt>a</tt> and <tt>b</tt> of the record reside in the heap.
+  In the example on the right, the type <tt>t1</tt> denotes the same record
+  has no allocation, the fields of the record are allocated in virtual
+  registers <tt>r1</tt> and <tt>r2</tt>.
 <!--      </section> -->
       <footer>
 <!--        
