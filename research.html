@@ -95,17 +95,19 @@ Joe Wells and Lyn Turbak led to the
 establishment of the Church Project in August of 1995, a joint research
 project between Boston University, Wellesley College and Boston College.
 The central focus of the Church Project was the design and development
-of a typed
-intermediate language (TIL) that might be used in a reliable
+of a typed intermediate language (TIL) that might be used in a reliable
 optimizing compiler for ML-like programming languages. The advantage
 of a <i>typed</i> IL over an untyped one is that the compiler can
 type-check the intermediate representation (IR) after transformation
-steps to ensure that invariants have been preserved.  The particular TIL
-developed in the Church Project used novel type system with
-interesection and union types together with flow labels. This enables
-the compiler to track the flow of values from their creation sites (sources)
-to their consumption sites (sinks) and to customize data representations in
-a safe and flexible way. For example, the following snippet of code
+steps to ensure that invariants have been preserved.
+</p>
+<p>
+  The particular TIL developed in the Church Project introduced a
+  novel type system with interesection and union types together with
+  flow labels. This enables a compiler to track the flow of values
+  from their creation sites (sources) to their consumption sites
+  (sinks) and to customize data representations in a safe and flexible
+  way. For example, the following snippet of code
 </p>
 <div align="center"><img src="assets/cil1.png" width=300></div>
 <p>produces a 3-tuple as a value, using 3 principal functions <tt>k</tt>,
